@@ -38,7 +38,9 @@ async function getBooks() {
   });
 }
 
+getBooks();
 
+//:P
 
 
 async function testAPI() {
