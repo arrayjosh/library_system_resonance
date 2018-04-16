@@ -1,1 +1,13 @@
 @import 'base';
+
+#books {
+  table {
+    tr {
+      img {
+        max-height: 100px;
+      }
+    }
+  }
+}
+
+// This sentence is false
