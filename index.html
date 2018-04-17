@@ -22,10 +22,20 @@
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="books-tab" data-toggle="tab" href="#books" role="tab" aria-controls="books" aria-selected="true">Books</a>
+          <a class="nav-link active" id="books-tab" data-toggle="tab" href="#books" role="tab" aria-controls="books" aria-selected="true">
+            Books
+            <button class="addBook btn btn-small btn-success px-2 py-0 ml-3" data-toggle="modal" data-target="#addBookModal">
+              &plus;
+            </button>
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="borrowers-tab" data-toggle="tab" href="#borrowers" role="tab" aria-controls="borrowers" aria-selected="false">Borrowers</a>
+          <a class="nav-link" id="borrowers-tab" data-toggle="tab" href="#borrowers" role="tab" aria-controls="borrowers" aria-selected="false">
+            Borrowers
+            <button class="addBorrower btn btn-small btn-success px-2 py-0 ml-3"  data-toggle="modal" data-target="#addBorrowerModal">
+              &plus;
+            </button>
+          </a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
@@ -46,12 +56,20 @@
           </table>
         </div>
 
-
-
         <div class="tab-pane fade" id="borrowers" role="tabpanel" aria-labelledby="borrowers-tab">
-          Borrowers go here
-        </div>
 
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+              </tr>
+            </thead>
+            <tbody id="borrowerTableBody">
+
+            </tbody>
+          </table>
+        </div>
       </div>
 
 
@@ -63,7 +81,7 @@
 
   <div id="templates" class="d-none">
     <table>
-      <tr class="bookRow" data-id="1">
+      <tr class="bookRow" data-id="">
         <th scope="row"><img class="img-fluid img-thumbnail bookImg" src="https://images.gr-assets.com/books/1505766203l/119322.jpg"></th>
         <td class="bookTitle">The Golden Compass</td>
         <td class="bookDesc">What a tale!</td>
@@ -74,9 +92,98 @@
             <option class="borrowerOption">Keanu Reeves</option>
           </select>
         </td>
+        <td>
+          <button class="deleteBook btn btn-danger btn-small px-1 py-0">
+            &times;
+          </button>
+        </td>
       </tr>
+
+
+        <tr class="borrowerRow" data-id="">
+          <td class="borrowerFirstname">fname</td>
+          <td class="borrowerLastname">lname</td>
+          <td>
+            <button class="deleteBorrower btn btn-danger btn-small px-1 py-0">
+              &times;
+            </button>
+          </td>
+        </tr>
     </table>
 
+  </div>
+
+
+
+
+
+
+
+  <!-- Modals -->
+  <div class="modal fade" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="addBookModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addBookModalLabel">Add Book</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="addBookForm">
+          <div class="modal-body">
+
+
+              <div class="form-group">
+                <input type="text" class="form-control" name="addBookTitle" placeholder="Enter Book Title">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="addBookDescription" rows="3" placeholder="Enter Book Description"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="addBookImageURL" placeholder="Enter Image URL">
+              </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <input type="submit" id="submitBook" class="btn btn-primary" value="Submit Book">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="addBorrowerModal" tabindex="-1" role="dialog" aria-labelledby="addBorrowerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addBorrowerModalLabel">Add Borrower</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="addBorrowerForm">
+          <div class="modal-body">
+
+
+              <div class="form-group">
+                <input type="text" class="form-control" name="addBorrowerFirstname" placeholder="Firstname">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="addBorrowerLastname" placeholder="Lastname">
+              </div>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <input type="submit" id="submitBook" class="btn btn-primary" value="Submit Borrower">
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
 
